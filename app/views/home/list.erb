@@ -1,0 +1,22 @@
+<div class="container">
+    <table class="table">
+        <tr>
+            <td>제목</td>
+            <td>작성자</td>
+            <td>작성일</td>
+            <td>조회수</td>
+        </tr>
+    <%@all_post.each do |p|%>    
+        <tr>
+            <td><a href="/home/detail/<%=p.id%>"><%=p.title%></a></td>
+            <td><%=p.writer%></td>
+            <td><%=p.created_at%></td>
+            <td><%=p.hit%></td>
+        </tr>
+        <%end%>
+    </table>
+    
+    <a href="/home/index">글쓰러 돌아가기</a>
+    
+    
+</div>

@@ -1,0 +1,42 @@
+<div class="container">
+<hr>
+<h2><%=@one_post.id%>번째 글</h2>
+제목 : <%=@one_post.title %><br>
+글쓴이 :<%=@one_post.writer %><br>
+조회수 : <%=@one_post.hit %><br>
+내용 : <%=@one_post.content %><br>
+
+<a href="/home/delete/<%=@one_post.id%>">삭제하기</a>
+<a href="/home/update/<%=@one_post.id%>">수정하기</a>
+
+<hr>
+
+<div class="container">
+
+    <h3>댓글창</h3>
+    <%@one_post.comments.each do |r| %>
+        <div class="container">
+        
+        <p><%=r.reply%></p>
+        </div>
+    <%end%>
+
+    <form action="/home/reply_ok/:id" method="POST">
+      <div class="form-group">
+        <label >댓글</label>
+        <input type="hidden" name="post_id" value="<%=@one_post.id%>">
+        <input type="text" name="reply" class="form-control" id="title" placeholder="제목을 입력해주세요">
+      </div>
+
+      
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+    
+
+
+</div>
+
+<a href="/home/list">리스트로 돌아가기</a>
+
+</div>
+
