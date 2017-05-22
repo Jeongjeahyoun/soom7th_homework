@@ -1,19 +1,40 @@
 <div class="container">
     <h1>글쓰는 곳</h1>
-    <form action="/home/write" method="POST">
+
       <div class="form-group">
         <label >제목</label>
         <input type="text" name="title" class="form-control" id="title" placeholder="제목을 입력해주세요">
       </div>
       <div class="form-group">
         <label >글쓴이</label>
-        <input type="text" name="writer" class="form-control" id="writer" placeholder="글쓴이를 입력해주세요">
+
+        <input type="text" name="writer" class="form-control" id="writer" value="<%=@db_user%>" placeholder="글쓴이를 입력해주세요">
+
       </div>
       <div class="form-group">
       <label for="comment">내용</label>
           <textarea class="form-control" name="content" rows="5" id="content"></textarea>
       </div>
       
-      <button type="submit" class="btn btn-default">Submit</button>
-    </form>
+      <button type="submit" class="btn btn-default write_submit">Submit</button>
+
 </div>
+
+<script>
+  $( ".write_submit" ).click(function() {
+
+  $.ajax({
+    method: "POST",
+    url: "/home/write",
+    data: { title: $("#title").val(),
+            writer: $("#writer").val(),
+            content: $("#content").val()
+          }
+    
+  })
+    .done(function( msg ) {
+        alert( "작성이 완료되었습니다" );
+
+    });
+  });
+</script>
