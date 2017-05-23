@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def index
     
-    @db_user = User.find([1])
+    @db_user = User.find(1).nickname
     
   end
   
