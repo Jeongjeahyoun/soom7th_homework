@@ -5,6 +5,11 @@ class HomeController < ApplicationController
     
   end
   
+  
+  def main
+    
+  end
+  
   def write
     @one_post = Post.new
     @one_post.title = params[:title]

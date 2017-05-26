@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root 'home#list'
   get 'home/index'
   
+  get 'home/main'
+  
   post 'home/write'
   
   get 'home/list'
