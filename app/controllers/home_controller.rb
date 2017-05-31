@@ -1,8 +1,8 @@
 class HomeController < ApplicationController
   def index
-    
-    @db_user = User.find(1).nickname
-    
+    if user_signed_in?
+      @email = current_user.email
+    end
   end
   
   
@@ -29,6 +29,10 @@ class HomeController < ApplicationController
   
   def list
     @all_post = Post.all
+    
+    if user_signed_in?
+      @email = current_user.email
+    end
     
   end
   
